@@ -8,4 +8,12 @@ test('repair restores durabillity to 100', () => {
     expect(res.durability).toEqual(100)
 })
 
-test('succeed function increments enhancement by if less than 20',)
+test('succeed function increments enhancement by if less than 20', () => {
+    const succeedItem = {name: 'david', durability:50, enhancement:20};
+    const res = enhancer.succeed(succeedItem);
+    if (succeedItem.enhancement >= 20){
+        expect(res.enhancement).toEqual(20)
+    } else {
+    expect(res.enhancement).toEqual(succeedItem.enhancement + 1);
+    }
+})
