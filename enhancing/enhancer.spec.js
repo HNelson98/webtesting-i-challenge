@@ -31,3 +31,13 @@ test('fail function passes all conditions', () => {
     }
 
 })
+
+test('get function add enhancement to name greater then 0', () => {
+    const getItem = {name: 'henry', durability: 50, enhancement: 10}
+    const res = enhancer.get(getItem)
+    if (res.enhancement > 0){
+        expect(res.name).toBe(`[+${res.enhancement}] henry`)
+    }else {
+        expect(res.name).toBe('henry')
+    }
+})
