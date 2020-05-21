@@ -17,3 +17,17 @@ test('succeed function increments enhancement by if less than 20', () => {
     expect(res.enhancement).toEqual(succeedItem.enhancement + 1);
     }
 })
+
+test('fail function passes all conditions', () => {
+    const failItem = {name: 'james', durability:50, enhancement:14};
+    const res = enhancer.fail(failItem);
+    if(failItem.enhancement < 15){
+        expect(res.durability).toEqual(failItem.durability - 5)
+    } else if (failItem.enhancement >= 15 && failItem.enhancement < 17 ){
+        expect(res.durability).toEqual(failItem.durability - 10)
+    } else {
+        expect(res.durability).toEqual(failItem.durability - 10)
+        expect(res.enhancement).toEqual(failItem.enhancement - 1)
+    }
+
+})
